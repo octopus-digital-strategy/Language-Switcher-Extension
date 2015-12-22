@@ -12,6 +12,8 @@ Some additional functionality for the Multisite Language Switcher
 
 ###Version 0.3 
 
+- Added msls_output filter
+- Added link-output.mustache file
 - Added link-template.mustache file
 - Added WPExpress ti use the render engine
 

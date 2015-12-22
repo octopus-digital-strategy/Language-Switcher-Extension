@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2015-10-20 11:00-0500\n"
-"PO-Revision-Date: 2015-10-20 11:01-0500\n"
+"POT-Creation-Date: 2015-12-22 18:53-0500\n"
+"PO-Revision-Date: 2015-12-22 18:53-0500\n"
 "Last-Translator: Iaax Page <page@iconicamarketing.com>\n"
 "Language-Team: \n"
 "Language: en\n"
@@ -14,11 +14,21 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: _n;_x;__;_e\n"
 "X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SearchPathExcluded-1: vendor/*\n"
 
-#: src/SetupPlugin.class.php:31
-msgid "Demo"
-msgstr ""
+#: src/ShortCodes.class.php:54
+msgid "es_MX"
+msgstr "Español"
 
-#: src/SetupPlugin.class.php:31
-msgid "Second Demo"
-msgstr ""
+#: src/ShortCodes.class.php:57
+msgid "es_ES"
+msgstr "Español"
+
+#: src/ShortCodes.class.php:60
+msgid "fr_FR"
+msgstr "Françes"
+
+#: src/ShortCodes.class.php:63
+msgid "en_EN"
+msgstr "English"
