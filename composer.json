@@ -1,0 +1,10 @@
+{
+    "autoload":{
+        "psr-4":{
+            "LanguageSwitcherExtension\\": "src/"
+        }
+    },
+    "require": {
+        "page-carbajal/wpexpress": "^0.4.0"
+    }
+}
