@@ -9,6 +9,7 @@ return array(
     'LanguageSwitcherExtension\\SetupPlugin' => $baseDir . '/src/SetupPlugin.class.php',
     'LanguageSwitcherExtension\\ShortCodes' => $baseDir . '/src/ShortCodes.class.php',
     'LanguageSwitcherExtension\\UI' => $baseDir . '/src/UI.class.php',
+    'LanguageSwitcherExtension\\UI\\OptionsPage' => $baseDir . '/src/UI/OptionsPage.class.php',
     'Mustache_Autoloader' => $vendorDir . '/mustache/mustache/src/Mustache/Autoloader.php',
     'Mustache_Cache' => $vendorDir . '/mustache/mustache/src/Mustache/Cache.php',
     'Mustache_Cache_AbstractCache' => $vendorDir . '/mustache/mustache/src/Mustache/Cache/AbstractCache.php',
