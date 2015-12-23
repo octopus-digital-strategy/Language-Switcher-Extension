@@ -5,6 +5,35 @@ Some additional functionality for the Multisite Language Switcher
 
 ##Features
 
+Adds 2 new short codes **lsex-link-to-language** and **lsex-get-language-url**.
+
+##Usage
+
+###Shortcodes
+
+####1. lsex-link-to-language
+
+Use this short code to build a link that points to a post in another language
+
+Users parameter **language** to indicate which language will the link be targeting. 
+Also uses the optional parameter **post-id** which indicates the source Post ID. If null the plugin will use the current post to get the target URL.
+
+```
+
+[lsex-link-to-language language='es_MX' post-id=800]<strong>Some HTMLM</strong[/lsex-link-to-language]
+
+```
+
+####2. lsex-get-language-url 
+
+It is a very simple short code. Provide the target language –In the correct format ***en_EN*** or ***fr_FR***– and get the target url for the given language.
+You can also specify the post ID with the optional parameter **post-id**
+
+```
+
+[lsex-get-language-url language='es_MX' post-id=800 /]
+
+```
 
 
 ##Change Log
@@ -12,6 +41,9 @@ Some additional functionality for the Multisite Language Switcher
 
 ###Version 0.3 
 
+- Updated documentation
+- Created short code lsex-link-to-language
+- Created short code lsex-get-language-url
 - Added msls_output filter
 - Added link-output.mustache file
 - Added link-template.mustache file

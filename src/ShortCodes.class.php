@@ -5,6 +5,8 @@ namespace LanguageSwitcherExtension;
 
 
 use WPExpress\UI\RenderEngine;
+use LanguageSwitcherExtension\UI;
+
 
 class ShortCodes
 {
@@ -22,28 +24,70 @@ class ShortCodes
     public function registerShortCodes()
     {
         if( function_exists( 'the_msls' ) ) {
-            add_shortcode( 'lsex-get-language-link', array($this, 'getLanguageLink') );
+//            the_msls();
+            add_shortcode( 'lsex-get-language-url', array($this, 'getLanguageURL') );
+            add_shortcode( 'lsex-link-to-language', array($this, 'linkToLanguage') );
         }
 
         return $this;
     }
 
-    public function getLanguageLink()
+    public function getLanguageURL( $atts )
     {
-        $obj = new \MslsOutput;
+        $properties = array(
+            'post-id'  => '',
+            'language' => 'en_EN',
+        );
+
+        $properties = shortcode_atts( $properties, $atts );
+
+        $targetURL = false;
+
+        foreach( \MslsBlogCollection::instance()->get_objects() as $blogID => $blogData ) {
+            if( $blogData->get_language() == $properties['language'] ) {
+
+                if( !empty($properties['post-id']) && is_numeric( $properties['post-id'] ) ) {
+                    $relatedPosts = \MslsOptions::instance()->create( $properties['post-id'] );
+                } else {
+                    $relatedPosts = \MslsOptions::instance()->create()->get_arr();
+                }
+
+                if( !empty($relatedPostID = $relatedPosts[ $properties['language'] ]) ) {
+                    $targetURL = get_blog_permalink( $blogID, $relatedPostID );
+                }
+
+                break;
+            }
+        }
+
+        return $targetURL;
+    }
+
+    public function linkToLanguage( $atts, $content = '' )
+    {
+
+        $properties = array(
+            'language'   => 'en_EN',
+            'link-class' => '',
+            'post-id'    => '',
+        );
+
+        $properties = shortcode_atts( $properties, $atts );
+
         $context = array(
-            'text' => implode( '', $obj->get( 0 ) ),
+            'hasClass' => (!empty($properties['link-class'])),
+            'class'    => $properties['link-class'],
+            'linkText' => $content,
+            'linkURL'  => $this->getLanguageURL( $properties ),
         );
 
         $engine = new RenderEngine( UI::getResourceDirectory( '', 'templates/mustache' ) );
 
-        return $engine->renderTemplate( 'link-template.mustache', $context );
-
+        return $engine->renderTemplate( 'link-to-language', $context );
     }
 
     public function linkOutputOverride( $url, $link, $current )
     {
-
         if( !is_front_page() && (empty($url) || (count( explode( '/', $url ) ) < 4)) ) {
             return null;
         }
