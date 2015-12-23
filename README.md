@@ -41,7 +41,7 @@ You can also specify the post ID with the optional parameter **post-id**
 
 ###Version 0.4
 
-- Configure the Options Page
+- Configured the Options Page
 - Configure the custom Filter for the Menus
 - Added the CustomFilters/Menu class
 - Added functionality to append translations to the menu
