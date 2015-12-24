@@ -41,6 +41,7 @@ You can also specify the post ID with the optional parameter **post-id**
 
 ###Version 0.4
 
+- Fixed small compatibility error for php 5.3
 - Completed the Append translations to Menu
 - Implemented select2 for menus in options page
 - Implemented select controls on OptionsPage

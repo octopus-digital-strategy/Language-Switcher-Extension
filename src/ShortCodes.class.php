@@ -52,7 +52,8 @@ class ShortCodes
                     $relatedPosts = \MslsOptions::instance()->create()->get_arr();
                 }
 
-                if( !empty($relatedPostID = $relatedPosts[ $properties['language'] ]) ) {
+                $relatedPostID = $relatedPosts[ $properties['language'] ];
+                if( !empty($relatedPostID) ) {
                     $targetURL = get_blog_permalink( $blogID, $relatedPostID );
                 }
 
