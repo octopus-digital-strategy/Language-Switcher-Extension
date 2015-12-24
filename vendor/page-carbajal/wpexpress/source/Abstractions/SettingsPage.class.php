@@ -227,14 +227,14 @@ abstract class SettingsPage
         }
     }
 
-    public function registerMetaField($name, $labelText, $fieldType = 'text', $groupName = '', $customAttributes = array())
+    public function registerMetaField($name, $labelText, $fieldType = 'text', $groupName = '', $customAttributes = array(), $options = null)
     {
         $name = sanitize_title($name);
-        $this->registeredMetaFields[] = array( 'name' => $name, 'labelText' => $labelText, 'fieldType' => $fieldType, 'groupName' => $groupName, 'customAttributes' => $customAttributes );
+        $this->registeredMetaFields[] = array( 'name' => $name, 'labelText' => $labelText, 'fieldType' => $fieldType, 'groupName' => $groupName, 'customAttributes' => $customAttributes, 'options' => $options );
         $this->properties["{$this->fieldPrefix}{$name}"] = '';
     }
 
-    private function addMetaField($name, $labelText, $fieldType = 'text', $groupName = '', $customAttributes = array())
+    private function addMetaField($name, $labelText, $fieldType = 'text', $groupName = '', $customAttributes = array(), $options = null)
     {
         $name = sanitize_title($name);
         // Add the field Markup
@@ -255,13 +255,13 @@ abstract class SettingsPage
             }
         }
 
-        $this->fields[] = array( 'type' => $fieldType, 'name' => $name, 'properties' => array_merge( $properties, $customAttributes ) );
+        $this->fields[] = array( 'type' => $fieldType, 'name' => $name, 'properties' => array_merge( $properties, $customAttributes ), 'options' => $options );
     }
 
     public function processRegisteredFields()
     {
         foreach($this->registeredMetaFields as $field ){
-            $this->addMetaField( $field['name'], $field['labelText'], $field['fieldType'], $field['groupName'], $field['customAttributes'] );
+            $this->addMetaField( $field['name'], $field['labelText'], $field['fieldType'], $field['groupName'], $field['customAttributes'], $field['options'] );
         }
 
         foreach($this->registeredMetaFieldArrays as $arrayField){

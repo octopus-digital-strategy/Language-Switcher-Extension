@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'LanguageSwitcherExtension\\CustomFilters\\Menu' => $baseDir . '/src/CustomFilters/Menu.class.php',
     'LanguageSwitcherExtension\\SetupPlugin' => $baseDir . '/src/SetupPlugin.class.php',
     'LanguageSwitcherExtension\\ShortCodes' => $baseDir . '/src/ShortCodes.class.php',
     'LanguageSwitcherExtension\\UI' => $baseDir . '/src/UI.class.php',

@@ -4,6 +4,7 @@
 namespace LanguageSwitcherExtension;
 
 
+use LanguageSwitcherExtension\CustomFilters\Menu;
 use LanguageSwitcherExtension\UI\OptionsPage;
 
 
@@ -12,7 +13,7 @@ class SetupPlugin
 
     public function __construct()
     {
-        $this->registerTextDomain()->registerFilters();
+        $this->registerStylesAndScripts()->registerTextDomain()->registerFilters();
         // Options Page
         new OptionsPage();
         // Register Shortcodes
@@ -21,14 +22,15 @@ class SetupPlugin
 
     public function registerFilters()
     {
+        new Menu();
         return $this;
     }
 
     public function registerStylesAndScripts()
     {
         // Load scripts for the front end
-        add_filter( 'wp_enqueue_scripts', array(__CLASS__, 'enqueueStyles') );
-        add_filter( 'wp_enqueue_scripts', array(__CLASS__, 'enqueueScripts') );
+        add_filter( 'admin_enqueue_scripts', array(__CLASS__, 'enqueueStyles') );
+        add_filter( 'admin_enqueue_scripts', array(__CLASS__, 'enqueueScripts') );
         return $this;
     }
 
@@ -48,15 +50,15 @@ class SetupPlugin
     // Static methods
     public static function enqueueStyles()
     {
-        if( $stylePath = UI::getResourceURL( 'language-switcher-extension.css', 'css' ) ) {
-            wp_enqueue_style( 'language-switcher-extension-css', $stylePath );
+        if( $stylePath = UI::getResourceURL( 'select2.min.css', 'bower_components/select2/dist/css' ) ) {
+            wp_enqueue_style( 'select2-css', $stylePath );
         }
     }
 
     public static function enqueueScripts()
     {
-        if( $scriptPath = UI::getResourceURL( 'language-switcher-extension.js', 'javascript' ) ) {
-            wp_enqueue_script( 'language-switcher-extension-js', $scriptPath, array('jquery') );
+        if( $scriptPath = UI::getResourceURL( 'select2.min.js', 'bower_components/select2/dist/js' ) ) {
+            wp_enqueue_script( 'select2-js', $scriptPath, array('jquery') );
         }
     }
 

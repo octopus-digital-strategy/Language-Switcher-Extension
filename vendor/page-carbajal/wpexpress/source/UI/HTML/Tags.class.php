@@ -111,7 +111,11 @@ class Tags
             if( !is_array($item) ){
                 $option .= "<option value=\"{$item}\">{$item}</option>";
             } else {
-                $option = "<option ";
+                $itemAtts = '';
+                if( !empty( $item['atts'] ) ){
+                    $itemAtts = self::arrayToHTMLAttributes( $item['atts'] );
+                }
+                $option = "<option {$itemAtts}";
                 if( isset($item['value']) ){
                     $option .= " value=\"{$item['value']}\"";
                 } else {

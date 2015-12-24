@@ -41,8 +41,13 @@ You can also specify the post ID with the optional parameter **post-id**
 
 ###Version 0.4
 
+- Completed the Append translations to Menu
+- Implemented select2 for menus in options page
+- Implemented select controls on OptionsPage
+- Added select2 as bower_components
+- Added the custom mustache template for the settings page
 - Configured the Options Page
-- Configure the custom Filter for the Menus
+- Configured the custom Filter for the Menus
 - Added the CustomFilters/Menu class
 - Added functionality to append translations to the menu
 - Added Options Page
