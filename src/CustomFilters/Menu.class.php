@@ -25,22 +25,26 @@ class Menu
 
             if( $menuSlugs == $menu->term_id ) {
                 global $post;
-                $sites = \MslsBlogCollection::instance()->get();
-                foreach( \MslsOptions::instance()->create()->get_arr() as $language => $postID ) {
-                    foreach( $sites as $siteID => $site ) {
-                        if( $site->get_language() == $language ) {
-                            $link = \MslsLink::create( $siteID );
-                            $link->src = \MslsOptions::instance()->get_flag_url( $language );
-                            $link->alt = $site->get_description();
-                            $link->txt = $site->get_description();
+                $options = new \MslsOptionsPost( get_queried_object_id() );
 
-                            $new_item = new \stdClass;
-                            $new_item->menu_order = count( $items );
-                            $new_item->url = get_blog_permalink( $siteID, $post->ID );
-                            $new_item->title = (string)$link;
-                            $items[] = $new_item;
-                        }
+                foreach( $options->get_arr() as $language => $postID ) {
+
+                    $site = $this->getSiteByLanguage( $language );
+
+                    if( $site !== false ) {
+                        $link = \MslsLink::create( $site->userblog_id );
+                        $link->src = \MslsOptions::instance()->get_flag_url( $language );
+                        $link->alt = $site->get_description();
+                        $link->txt = "&nbsp;";
+
+                        $new_item = new \stdClass;
+                        $new_item->menu_order = count( $items );
+                        $new_item->url = get_blog_permalink( $site->userblog_id, $post->ID );
+                        $new_item->title = (string)$link;
+                        $items[] = $new_item;
+
                     }
+
                 }
 
             }
@@ -48,6 +52,17 @@ class Menu
         }
 
         return $items;
+    }
+
+    private function getSiteByLanguage( $language )
+    {
+        $sites = \MslsBlogCollection::instance()->get();
+        foreach( $sites as $id => $s ) {
+            if( $language == $s->get_language() ) {
+                return $sites[$id];
+            }
+        }
+        return false;
     }
 
     public static function getMenus()

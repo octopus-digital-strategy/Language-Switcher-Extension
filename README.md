@@ -38,6 +38,10 @@ You can also specify the post ID with the optional parameter **post-id**
 
 ##Change Log
 
+###Version 0.5
+
+- Fixed an error on homepage options
+
 
 ###Version 0.4
 
