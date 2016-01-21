@@ -6,42 +6,44 @@ namespace LanguageSwitcherExtension\CustomFilters;
 
 use LanguageSwitcherExtension\UI\OptionsPage;
 
+
 class Menu
 {
 
     public function __construct()
     {
-        add_filter( 'wp_get_nav_menu_items', array($this, 'filterNavigationMenuItems'), 10, 3 );
+        add_filter('wp_get_nav_menu_items', array( $this, 'filterNavigationMenuItems' ), 10, 3);
     }
 
     public function filterNavigationMenuItems( $items, $menu, $args )
     {
         // Only if the Multisite Language Switcher Plugin is installed and active
-        if( function_exists( 'the_msls' ) ) {
+        if( function_exists('the_msls') ) {
 
             $options = new OptionsPage();
 
-            $menuSlugs = $options->getValue( 'menu_slugs' );
+            $menuSlugs = $options->getValue('menu_slugs');
 
             if( $menuSlugs == $menu->term_id ) {
                 global $post;
-                $options = new \MslsOptionsPost( get_queried_object_id() );
+                $options = new \MslsOptionsPost(get_queried_object_id());
 
-                foreach( $options->get_arr() as $language => $postID ) {
+                $languages = $options->get_arr();
 
-                    $site = $this->getSiteByLanguage( $language );
+                foreach( $languages as $language => $postID ) {
+
+
+                    $site = $this->getSiteByLanguage($language);
 
                     if( $site !== false ) {
-                        $link = \MslsLink::create( $site->userblog_id );
-                        $link->src = \MslsOptions::instance()->get_flag_url( $language );
-                        $link->alt = $site->get_description();
-                        $link->txt = "&nbsp;";
+                        $imgURL = \MslsOptions::instance()->get_flag_url($language);
+                        $link = "<img src=\"{$imgURL}\" alt=\"{$site->get_description()}\"/>";
 
-                        $new_item = new \stdClass;
-                        $new_item->menu_order = count( $items );
-                        $new_item->url = get_blog_permalink( $site->userblog_id, $post->ID );
-                        $new_item->title = (string)$link;
-                        $items[] = $new_item;
+                        $new_item             = new \stdClass;
+                        $new_item->menu_order = count($items);
+                        $new_item->url        = get_blog_permalink($site->userblog_id, $post->ID);
+                        $new_item->title      = $link;
+                        $items[]              = $new_item;
 
                     }
 
@@ -70,11 +72,11 @@ class Menu
         $list = array();
 
         foreach( wp_get_nav_menus() as $m ) {
-            $item = new \stdClass();
-            $item->ID = $m->term_id;
+            $item       = new \stdClass();
+            $item->ID   = $m->term_id;
             $item->name = $m->name;
             $item->slug = $m->slug;
-            $list[] = $item;
+            $list[]     = $item;
         }
 
         return $list;

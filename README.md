@@ -38,6 +38,11 @@ You can also specify the post ID with the optional parameter **post-id**
 
 ##Change Log
 
+###Version 0.5.1
+
+- Replaced MsLsLink class usage with a string for the flag
+- Adopted [Semantic Versioning](http://semver.org)
+
 ###Version 0.5
 
 - Fixed an error on homepage options
