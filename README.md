@@ -16,7 +16,6 @@ Adds 2 new short codes **lsex-link-to-language** and **lsex-get-language-url**.
 Use this short code to build a link that points to a post in another language
 
 Users parameter **language** to indicate which language will the link be targeting. 
-Also uses the optional parameter **post-id** which indicates the source Post ID. If null the plugin will use the current post to get the target URL.
 
 ```
 
@@ -27,7 +26,6 @@ Also uses the optional parameter **post-id** which indicates the source Post ID.
 ####2. lsex-get-language-url 
 
 It is a very simple short code. Provide the target language –In the correct format ***en_EN*** or ***fr_FR***– and get the target url for the given language.
-You can also specify the post ID with the optional parameter **post-id**
 
 ```
 
@@ -48,8 +46,12 @@ The easier of them all. Returns a string with all the links to available transla
 
 ##Change Log
 
+###Version 0.6.1 - Fixes short code magic
 
-###Version 0.6.0
+- Added link to ShortCodes/translationLinks
+- Updated documentation 
+
+###Version 0.6.0 - Short code magic 
 
 - Added short-code **lsex-translation-links**
 - Fixed short-code **lsex-link-to-language**

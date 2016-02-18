@@ -38,9 +38,11 @@ class Translations
 
             if( $site !== false ) {
                 $imgURL                  = \MslsOptions::instance()->get_flag_url($language);
+                $thePermalink            = get_blog_permalink($site->userblog_id, $post->ID);
                 $translations[$language] = array(
-                    'url'      => get_blog_permalink($site->userblog_id, $post->ID),
-                    'htmlLink' => "<img src=\"{$imgURL}\" alt=\"{$site->get_description()}\"/>",
+                    'url'      => $thePermalink,
+                    'flag'     => "<img src=\"{$imgURL}\" alt=\"{$site->get_description()}\"/>",
+                    'htmlLink' => "<a href=\"{$thePermalink}\" class=\"translationLink\"><img src=\"{$imgURL}\" alt=\"{$site->get_description()}\"/></a>",
                 );
             }
         }
