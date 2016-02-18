@@ -4,6 +4,7 @@
 namespace LanguageSwitcherExtension\CustomFilters;
 
 
+use LanguageSwitcherExtension\Translations;
 use LanguageSwitcherExtension\UI\OptionsPage;
 
 
@@ -25,28 +26,15 @@ class Menu
             $menuSlugs = $options->getValue('menu_slugs');
 
             if( $menuSlugs == $menu->term_id ) {
-                global $post;
-                $options = new \MslsOptionsPost(get_queried_object_id());
 
-                $languages = $options->get_arr();
+                $translations = new Translations();
 
-                foreach( $languages as $language => $postID ) {
-
-
-                    $site = $this->getSiteByLanguage($language);
-
-                    if( $site !== false ) {
-                        $imgURL = \MslsOptions::instance()->get_flag_url($language);
-                        $link = "<img src=\"{$imgURL}\" alt=\"{$site->get_description()}\"/>";
-
-                        $new_item             = new \stdClass;
-                        $new_item->menu_order = count($items);
-                        $new_item->url        = get_blog_permalink($site->userblog_id, $post->ID);
-                        $new_item->title      = $link;
-                        $items[]              = $new_item;
-
-                    }
-
+                foreach( $translations->getTranslations() as $index => $t ){
+                    $new_item             = new \stdClass;
+                    $new_item->menu_order = count($items);
+                    $new_item->url        = $t['url'];
+                    $new_item->title      = $t['htmlLink'];
+                    $items[]              = $new_item;
                 }
 
             }
@@ -54,17 +42,6 @@ class Menu
         }
 
         return $items;
-    }
-
-    private function getSiteByLanguage( $language )
-    {
-        $sites = \MslsBlogCollection::instance()->get();
-        foreach( $sites as $id => $s ) {
-            if( $language == $s->get_language() ) {
-                return $sites[$id];
-            }
-        }
-        return false;
     }
 
     public static function getMenus()

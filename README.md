@@ -20,7 +20,7 @@ Also uses the optional parameter **post-id** which indicates the source Post ID.
 
 ```
 
-[lsex-link-to-language language='es_MX' post-id=800]<strong>Some HTMLM</strong[/lsex-link-to-language]
+[lsex-link-to-language language='es_MX']<strong>Some HTMLM</strong[/lsex-link-to-language]
 
 ```
 
@@ -31,12 +31,29 @@ You can also specify the post ID with the optional parameter **post-id**
 
 ```
 
-[lsex-get-language-url language='es_MX' post-id=800 /]
+[lsex-get-language-url language='es_MX' /]
+
+```
+
+####3. lsex-translation-links 
+
+The easier of them all. Returns a string with all the links to available translations. No parameters.
+
+```
+
+[lsex-translation-links /]
 
 ```
 
 
 ##Change Log
+
+
+###Version 0.6.0
+
+- Added short-code **lsex-translation-links**
+- Fixed short-code **lsex-link-to-language**
+- Added class Translations 
 
 ###Version 0.5.1
 
