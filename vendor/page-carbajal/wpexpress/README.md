@@ -1,7 +1,8 @@
-# WPExpress
+# WPExpress - A WordPress Framework for Developers
+
 A light weight framework for WordPress Developers
 
-Built to help you DRY. WPExpress is a package that helps you achieve the most common taks on WordPress
+Built to help you DRY. WPExpress is being developed to expedite the repetitive work, giving you the chance to work in code that matters in your WordPress projects.
 
 ##Quick Start
 
@@ -9,42 +10,118 @@ WPExpress is designed to be easy to use. Start by reading our [documentation](ht
 
 ##Framework Structure
 
-* WPExpress
-    * Query
-    * Abstractions
-        * Model
-            * BaseModel
-            * BaseTaxonomy
-        * Settings Page
-        * Dashboard Widget
-    * Model
-        * Post
-        * Taxonomy
-    * UI
-        * RenderEngine
-        * HTML/ Tags
-            * Textbox
-            * Radio
-            * Checkbox
-            * Select
-            * TextArea
-            * Code
-            * WYSIWYG
-            * GoogleMap
-
-##Road Map
-
-* Encapsulate common tasks such as getAll, getByField, getPermalink, getThumbailURL, getAttachments
-* Register CPTs and Taxonomies
-* Implement dotEnv for configurations
-* Provides a set of Abstract classes to build 
-    * Custom Post Types / Fields
-    * Custom Taxonomies
-    * DashboardWidgets
-
+- Database  [WPExpress/Query](https://github.com/Page-Carbajal/WPExpress-Query)
+	- Query
+	- Taxonomy
+	- User **TBD**
+	- UserRole **TBD**
+	- Transient **TBD**
+- Model
+	- BaseModel
+	- BaseModelInterface
+	- BaseTaxonomy
+	- BaseUser **TBD**
+	- BaseRole **TBD**
+	- BaseRelation **TBD**
+- Admin
+	- BaseSettingsPage
+	- Metabox **TBD**
+	- Widget **TBD**
+- API **TBD**
+	- BaseAPI
+- UI [WPExpress/UI](https://github.com/Page-Carbajal/WPExpress-UI)
+	- RenderEngine
+	- HTML/Tags
+	- ReactJS **TBD**
+	
+##RoadMap
 
 
 ##Changelog
+
+###TODO
+
+- Add icons support for BaseModel
+
+##Current Track
+
+
+###Version 1.2.0
+
+- Added the method getPostType to BaseModel
+- Deleted the BaseModelInterface class in favor of Convention over Configuration
+
+
+###Version 1.1.0
+
+- Simplified the classes Page and Post
+- Added constructor function to make it easier for folks to get started with the project
+- Removed the datatype from function declaration on BaseModel/setPublic
+
+
+###Version 1.0.0
+
+- Made Post class final
+- Made Post class extend BaseModel 
+- Added empty abstract class Admin/MetaBox class
+- Added empty abstract class API/BaseApi 
+- Added empty abstract classes BaseUser and BaseUserRole 
+- Added BaseModel, BaseModelInterface and BaseTaxonomy abstract classes
+- Finished the first iteration on the project structure
+- Removed Abstractions, Model and Interfaces folder from project structure
+
+
+##Version Zero-Six
+
+This version is maintained for compatibility purposes only. 
+
+
+###Version 0.6.1 - Updated Query version
+
+- Updated WPExpress Query version
+
+###Version 0.6.0 - New models
+
+- Implementing BaseTaxonomy
+- Updated WPExpress/Query dependency 
+- Implemented basic methods for BaseTaxonomy
+- Added empty Sample classes Post and Taxonomy
+- Added empty BaseTaxonomy class
+- Added empty BasePostModel class
+
+
+###Version 0.5.4 - Updated WPExpress/UI version
+
+- Updated WPExpress to 0.5.2
+
+###Version 0.5.3 - Fixes SettingsPage Render Error
+
+- Throw exception if template file not found
+- Implemented fail-safe to render dedault settings-page template on error
+- Updated WPExpress/UI to 0.5.1
+- Added vendor directory to .gitignore 
+
+
+###Version 0.5.2
+
+- Applied code styling to BaseModel class
+- Added property BaseModel/menuPosition accessible with magic methods
+- Fixed the default menu position to 20
+
+
+###Version 0.5.1
+
+- Moved to require PHP 5.6 or higher
+- Updated the version of WPExpress UI
+- Removed the vendor folder from the repository
+- Fixed the BaseModel/getSupportedFeatures error
+- Adopted [Semantic Versioning](http://semver.org)
+
+###Version 0.5 - Separation of Packages UI and Query
+
+- Both packages are included through composer
+- Created the package [WPExpress/UI](https://github.com/Page-Carbajal/WPExpress-UI)
+- Created the package [WPExpress/Query](https://github.com/Page-Carbajal/WPExpress-Query)
 
 ###Version 0.4 - Twig and RenderEngine enhancements
 

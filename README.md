@@ -46,6 +46,14 @@ The easier of them all. Returns a string with all the links to available transla
 
 ##Change Log
 
+
+###Version 0.7.0 - Upgrade to WPExpress 1
+
+- Edited the gitignore file
+- Added the whole vendor folder to the repository minus the tests and docs
+
+
+
 ###Version 0.6.1 - Fixes short code magic
 
 - Added link to ShortCodes/translationLinks
