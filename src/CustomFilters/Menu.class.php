@@ -5,7 +5,7 @@ namespace LanguageSwitcherExtension\CustomFilters;
 
 
 use LanguageSwitcherExtension\Translations;
-use LanguageSwitcherExtension\UI\OptionsPage;
+use LanguageSwitcherExtension\Admin\OptionsPage;
 
 
 class Menu

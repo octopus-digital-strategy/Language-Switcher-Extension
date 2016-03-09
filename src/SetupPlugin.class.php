@@ -5,7 +5,7 @@ namespace LanguageSwitcherExtension;
 
 
 use LanguageSwitcherExtension\CustomFilters\Menu;
-use LanguageSwitcherExtension\UI\OptionsPage;
+use LanguageSwitcherExtension\Admin\OptionsPage;
 
 
 class SetupPlugin

@@ -307,7 +307,8 @@ abstract class BaseSettingsPage
     private function getTemplatesPath()
     {
         $customTemplatesPath = untrailingslashit($this->customTemplatesPath);
-        if( ( $this->customTemplatesPath !== false ) && file_exists($customTemplatesPath . "{$this->menuSlug}.{$this->templateExtension}") ) {
+        $filePath = "{$customTemplatesPath}/{$this->templateExtension}/{$this->menuSlug}.{$this->templateExtension}";
+        if( ( $this->customTemplatesPath !== false ) && file_exists($filePath) ) {
             return $customTemplatesPath;
         }
 

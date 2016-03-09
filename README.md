@@ -49,6 +49,8 @@ The easier of them all. Returns a string with all the links to available transla
 
 ###Version 0.7.0 - Upgrade to WPExpress 1
 
+- Fixed some rendering errors
+- Updated OptionsPage class
 - Edited the gitignore file
 - Added the whole vendor folder to the repository minus the tests and docs
 

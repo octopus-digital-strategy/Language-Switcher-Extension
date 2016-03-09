@@ -1,15 +1,15 @@
 <?php
 
 
-namespace LanguageSwitcherExtension\UI;
+namespace LanguageSwitcherExtension\Admin;
 
 
 use LanguageSwitcherExtension\CustomFilters\Menu;
 use LanguageSwitcherExtension\UI;
-use WPExpress\Abstractions\SettingsPage;
+use WPExpress\Admin\BaseSettingsPage;
 
 
-class OptionsPage extends SettingsPage
+class OptionsPage extends BaseSettingsPage
 {
 
     public function __construct()
