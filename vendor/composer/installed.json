@@ -187,17 +187,17 @@
     },
     {
         "name": "page-carbajal/wpexpress",
-        "version": "1.2.0",
-        "version_normalized": "1.2.0.0",
+        "version": "1.2.2",
+        "version_normalized": "1.2.2.0",
         "source": {
             "type": "git",
             "url": "https://github.com/Page-Carbajal/WPExpress.git",
-            "reference": "c0e8a01a4bdb33c151cda94ffffec223152a24eb"
+            "reference": "309ae575d093835f5a1c25aea7800451af180703"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Page-Carbajal/WPExpress/zipball/c0e8a01a4bdb33c151cda94ffffec223152a24eb",
-            "reference": "c0e8a01a4bdb33c151cda94ffffec223152a24eb",
+            "url": "https://api.github.com/repos/Page-Carbajal/WPExpress/zipball/309ae575d093835f5a1c25aea7800451af180703",
+            "reference": "309ae575d093835f5a1c25aea7800451af180703",
             "shasum": ""
         },
         "require": {
@@ -205,7 +205,7 @@
             "page-carbajal/wpexpress-ui": "^0.5.3",
             "php": ">=5.5"
         },
-        "time": "2016-03-03 23:09:09",
+        "time": "2016-03-09 16:32:17",
         "type": "library",
         "installation-source": "dist",
         "autoload": {

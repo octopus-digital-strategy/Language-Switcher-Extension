@@ -49,11 +49,11 @@ The easier of them all. Returns a string with all the links to available transla
 
 ###Version 0.7.0 - Upgrade to WPExpress 1
 
+- Updated to WPExpress 1.2.2
 - Fixed some rendering errors
 - Updated OptionsPage class
 - Edited the gitignore file
 - Added the whole vendor folder to the repository minus the tests and docs
-
 
 
 ###Version 0.6.1 - Fixes short code magic
