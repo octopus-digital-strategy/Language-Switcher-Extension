@@ -3,7 +3,7 @@
  * Plugin name: Language Switcher Extension
  * Plugin URI: https://github.com/octopus-digital-strategy/Language-Switcher-Extension
  * Description: This plugin extends the functionality of the plugin Multisite Language Switcher. Adding a couple of shortcodes and an easy way to append translation to menus
- * Version: 0.7.0
+ * Version: 0.8.0
  * Author: Page-Carbajal
  * Author URI: http://pagecarbajal.com
  */
