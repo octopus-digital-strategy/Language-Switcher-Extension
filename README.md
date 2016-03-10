@@ -49,6 +49,8 @@ The easier of them all. Returns a string with all the links to available transla
 
 ###Version 0.7.0 - Upgrade to WPExpress 1.2.4
 
+- Upgraded the options page
+- Upgraded UI class
 - Upgraded to WPExpress 1.2.4
 - Fixed some rendering errors
 - Updated OptionsPage class

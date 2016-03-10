@@ -4,35 +4,18 @@
 namespace LanguageSwitcherExtension;
 
 
-class UI
+use WPExpress\UI\BaseResources;
+
+
+class UI extends BaseResources
 {
-
-    public function __construct()
+    public function getBaseDirectory()
     {
-
+        return untrailingslashit( plugin_dir_path(__FILE__) ) . "/../resources/";
     }
 
-    public static function getResourceDirectory( $fileName, $subDirectory = 'css' )
+    public function getBaseURL()
     {
-        // Allows for override of files
-        $customPath = untrailingslashit( get_stylesheet_directory() ) . "/{$subDirectory}/{$fileName}";
-        if( file_exists( $customPath ) ){
-            return $customPath;
-        }
-
-        $filePath = plugin_dir_path( __FILE__ ) . "../resources/{$subDirectory}/{$fileName}";
-        if( file_exists( $filePath ) ) {
-            return apply_filters( 'lsex_resources_directory', $filePath );
-        }
-        return false;
-    }
-
-    public static function getResourceURL( $fileName, $subDirectory = 'css' )
-    {
-        if( UI::getResourceDirectory( $fileName, $subDirectory ) !== false ) {
-            return plugin_dir_url( __FILE__ ) . "../resources/{$subDirectory}/{$fileName}";
-        }
-
-        return false;
+        return untrailingslashit(plugin_dir_url( __FILE__ )) . "/../resources/";
     }
 }
