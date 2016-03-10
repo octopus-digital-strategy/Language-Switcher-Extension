@@ -74,7 +74,7 @@ class ShortCodes
             'linkURL'  => $this->getLanguageURL($properties),
         );
 
-        $engine = new RenderEngine(UI::getResourceDirectory('', 'templates/mustache'));
+        $engine = new RenderEngine(UI::getResourceDirectory('', 'templates'));
 
         return $engine->renderTemplate('link-to-language', $context);
     }

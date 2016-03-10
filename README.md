@@ -19,7 +19,7 @@ Users parameter **language** to indicate which language will the link be targeti
 
 ```
 
-[lsex-link-to-language language='es_MX']<strong>Some HTMLM</strong[/lsex-link-to-language]
+[lsex-link-to-language language='es_MX']<strong>Some HTML</strong>[/lsex-link-to-language]
 
 ```
 
@@ -49,6 +49,10 @@ The easier of them all. Returns a string with all the links to available transla
 
 ###Version 0.7.0 - Upgrade to WPExpress 1.2.4
 
+- Added translation files for Spanish and English
+- Tested All ShortCodes and Filters
+- Updated template link-to-language.mustache
+- Updated documentation
 - Upgraded to WPExpress/UI 1.0.2
 - Added Menu class methods renderMenuItemsForAvailableTranslations, renderMenuItemsForAvailableTranslationsWithoutFlags and renderMenuItems
 - Added method Translations/getLanguageTranslation

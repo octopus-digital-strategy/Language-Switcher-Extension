@@ -27,9 +27,10 @@ class Translations
 
     private function setTranslations()
     {
-        global $post;
-        $options = new \MslsOptionsPost(get_queried_object_id());
+        global $post, $wp_query;
 
+        $targetID     = ( isset( $wp_query ) ? get_queried_object_id() : get_option('page_on_front', get_option('page_for_posts')) );
+        $options      = new \MslsOptionsPost($targetID);
         $languages    = $options->get_arr();
         $translations = array();
 

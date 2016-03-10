@@ -36,15 +36,15 @@ class SetupPlugin
 
     public function registerTextDomain()
     {
-        add_filter( 'plugins_loaded', array($this, 'registerPluginTextDomain') );
-        return $this;
-    }
+        $locale = get_locale();
+        $moFile = UI::getResourceDirectory( "lsex-{$locale}.mo", 'languages' );
+        if( false !== $moFile ){
+            $pluginFilePath = plugin_basename(__FILE__);
+            $filePath = explode('/',$pluginFilePath);
 
-    public function registerPluginTextDomain()
-    {
-        if( $path = UI::getResourceDirectory( '', 'languages' ) ) {
-            load_plugin_textdomain( 'lsex', false, $path );
+            load_plugin_textdomain( 'lsex', false, "{$filePath[0]}/resources/languages/" );
         }
+        return $this;
     }
 
     // Static methods
