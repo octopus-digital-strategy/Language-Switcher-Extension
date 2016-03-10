@@ -49,6 +49,7 @@ The easier of them all. Returns a string with all the links to available transla
 
 ###Version 0.8.0 - New Translations/setTranslations 
 
+- Upgraded to WPExpress 1.2.5
 - Updated Plugin version
 - Tested Shortcodes in local also working properly
 - Tested changes in production theyre working as expected

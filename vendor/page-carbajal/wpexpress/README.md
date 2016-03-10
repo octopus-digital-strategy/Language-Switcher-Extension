@@ -12,16 +12,17 @@ WPExpress is designed to be easy to use. Start by reading our [documentation](ht
 
 - Database  [WPExpress/Query](https://github.com/Page-Carbajal/WPExpress-Query)
 	- Query
+	- Post
 	- Taxonomy
+	- MetaField
 	- User **TBD**
 	- UserRole **TBD**
 	- Transient **TBD**
 - Model
 	- BaseModel
-	- BaseModelInterface
 	- BaseTaxonomy
 	- BaseUser **TBD**
-	- BaseRole **TBD**
+	- BaseUserRole **TBD**
 	- BaseRelation **TBD**
 - Admin
 	- BaseSettingsPage
@@ -30,62 +31,44 @@ WPExpress is designed to be easy to use. Start by reading our [documentation](ht
 - API **TBD**
 	- BaseAPI
 - UI [WPExpress/UI](https://github.com/Page-Carbajal/WPExpress-UI)
+    - BaseResources
 	- RenderEngine
-	- HTML/Tags
+	- FieldCollection
+	- HTMLFieldParser
 	- ReactJS **TBD**
 	
 ##RoadMap
+
+###Anouncing Minerva for WPExpress
+
+To be serious about this framework, I need to build a **Command Line Interface**. **[Minerva](https://github.com/Page-Carbajal/Minerva)** will be such **CLI**
 
 ###WPExpress 1.3
 
 The stable release of the Framework with al of its members finished and working 100%
 
-###WPExpress/Mine
-
-Mine will be a CLI tool for WPExpress. The concept is similar to Rails rake or Laravel artisan.
-
-**Why Mine?**
-
-The word Mine in english has a personal attachment to it. But in spanish is the nickname of my mom. This is my homage to her name. It is very little to be able to tell how much she meant to me, but it's a start.   
-
-####Commands
-
-**New Theme**
-
-```bash
-$ mine new theme AwesomeTheme
-```
-
-**New Plugin**
-
-```bash
-$ mine new plugin AwesomePlugin
-```
-
-**New Model**
-
-```bash 
-$ mine new model Book
-```
-
-**New Settings Page**
-
-```bash 
-$ mine new settings-page MySettings
-```
-
-
-When you generate themes or plugins with **Mine** it will automatically create a folder with a composer file on it, download the latest WPExpress preset the PSR-4 autoload.
-
-You will be able to test the theme or the plugin right away
 
 ##Changelog
 
 ###TODO
 
 - Add icons support for BaseModel
+- BaseSettingsPage/AutoSetValues for Fields
+    - Create the public method  BaseSettingsPage/setFieldValue to use the field key to set the field value
+    - Add apply_filters method to FieldCollection/addNewField to allow setting values with a filter
 
 ##Current Track
+
+
+
+###Version 1.2.5 - BaseSettingsPage Beautification
+
+- Changed the methods update_site_option and get_site_option to update_option and get_option
+- Allow empty values on BaseSettings/save
+- Documentation update
+- Removed the property BaseSettingsPage/settingsPageHeading
+- Simplified the BaseSettingsPage constructor
+- Renamed the property BaseSettingsPage/capabilities to BaseSettingsPage/userCapabilities 
 
 
 ###Version 1.2.4 - WPExpress/UI 1.0.2

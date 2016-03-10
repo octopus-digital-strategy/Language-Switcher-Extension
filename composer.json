@@ -5,6 +5,6 @@
         }
     },
     "require": {
-        "page-carbajal/wpexpress": "^1.2.4"
+        "page-carbajal/wpexpress": "^1.2.5"
     }
 }
