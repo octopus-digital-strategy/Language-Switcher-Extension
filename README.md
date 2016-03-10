@@ -47,7 +47,7 @@ The easier of them all. Returns a string with all the links to available transla
 ##Change Log
 
 
-###Version 0.7.1 - Site Option Fix!
+###Version 0.7.1 - Site Option Fix! --Not Tagged!
 
 - Updated BaseSettingsPage to use get_option and update_option instead of site_option alternatives
 
