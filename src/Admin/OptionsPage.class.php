@@ -14,38 +14,38 @@ class OptionsPage extends BaseSettingsPage
 
     public function __construct()
     {
+        // Set Type of Page
+        $this->pageType = 'management';
+        // Invoke parent to register page
         parent::__construct(__('Translations in Menus', 'lsex'), 'manage_options', 'lsex-menu-options');
-
+        // Custom path to template folder
         $this->setCustomTemplatePath(UI::getResourceDirectory('', 'templates'));
-
-        $description = __('Language Switcher Extension', 'lsex');
-        $this->addMyFields()
-            ->setPageDescription($description)
-            ->setPageTitle(__('Append Translations to Menus Settings', 'lsex'))
-            ->registerPage('options');
-
+        // Page Description
+        $this->setPageDescription(__('A Language Switcher Extension', 'lsex'));
+        // Page Title
+        $this->setPageTitle(__('Append Translations Items to Menus', 'lsex'));
+        // Add custom options
+        $this->addPageOptions();
     }
 
-    public function addMyFields()
+    public function addPageOptions()
     {
         $menuList = array_map(function ( $item ) {
             return array( 'text' => $item->name, 'value' => $item->ID );
         }, Menu::getMenus());
 
-        array_unshift($menuList, array( 'text' => __('None', 'lsex'), 'value' => '', 'atts' => array( 'selected' => 'selected', 'disabled' => 'disabled' ) ));
+        $menuList[] = array( 'text' => 'N/A', 'value' => '', 'selected' => 1 );
 
+        $menuWithFlags = get_site_option('menu_slugs');
+        $this->fields->addSelect('menu_slugs', $menuList);
+        $this->fields->setValue($menuWithFlags);
+        $this->fields->addLabel(__('Append Flag + Text to', 'lsex'));
 
-        $atts = array( 'style' => 'min-width: 400px;', 'readonly' => false );
-
-        $this->registerMetaField(
-            'menu_slugs',
-            __('Select Menus', 'lsex'),
-            'select', '', array_merge($atts, array( 'options' => $menuList )));
-        $this->registerMetaField(
-            'menu_slugs_no_flag',
-            __('Select Menus - No Flag', 'lsex'),
-            'select', '', array_merge($atts, array( 'options' => $menuList )));
+        // 2 Lines
+        $menuNoFlags = get_site_option('menu_slugs_no_flag');
+        $this->fields->addSelect('menu_slugs_no_flag', $menuList)->addLabel(__('Append Text-Only item to', 'lsex'))->setValue($menuNoFlags);
 
         return $this;
     }
+
 }
