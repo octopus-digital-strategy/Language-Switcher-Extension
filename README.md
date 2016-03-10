@@ -49,6 +49,7 @@ The easier of them all. Returns a string with all the links to available transla
 
 ###Version 0.7.0 - Upgrade to WPExpress 1.2.4
 
+- Upgraded to WPExpress/UI 1.0.2
 - Added Menu class methods renderMenuItemsForAvailableTranslations, renderMenuItemsForAvailableTranslationsWithoutFlags and renderMenuItems
 - Added method Translations/getLanguageTranslation
 - Added template list-item-template.mustache
