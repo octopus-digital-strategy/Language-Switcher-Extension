@@ -194,7 +194,7 @@ abstract class BaseSettingsPage
             do_action('wpExpressSettingsPageBeforeSave', $this, $_POST);
             foreach( $this->fields->toArray() as $fieldName => $field ) {
                 $optionName = "{$this->fieldPrefix}{$fieldName}";
-                if( isset( $_POST[$fieldName] ) && !empty( $_POST[$fieldName] ) ) {
+                if( isset( $_POST[$fieldName] ) ) {
                     update_site_option($optionName, $_POST[$fieldName]);
                     // Update the field value :D
                     $this->fields($fieldName)->setValue($_POST[$fieldName]);
