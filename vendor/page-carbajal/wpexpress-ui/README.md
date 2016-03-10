@@ -11,6 +11,29 @@ HTML Builder and Render Engine for WPExpress.
 
 - Create Formatting class a port of WordPress functions to sanitize titles and file names
 
+###Version 1.0.0 - Release Candidate 1
+
+- Finished small touches on HTMLFieldParser and FieldCollection
+- Added method FieldCollection/toArray
+- Renamed the method BaseSettingsPage/getFieldValue to getOptionValue
+- Fixed HTMLFieldParser/textArea method
+- Added support for custom field IDs on HTMLFieldParser/parseFields
+- Fixed FieldsCollection newField/type error
+- Simplified BaseSettings Page
+- Fixed attribution error on FieldCollection setProperty and setAttribute
+- Removed field methods from BaseSettingsPage
+- Added method FieldCollection/parse
+- Renamed Tags to HTMLFieldParser
+- Added FieldCollection class
+- Renamed UI to BaseResources 
+- Dropped UI folder
+
+
+###Version 0.5.4 
+
+- Added warning for empty options to Tags/selectField
+- RenderEngine/createDirectoryStructure triggers a warning instead of an error 
+
 ###Version 0.5.3
 
 - Added radio button and text area HTML tags
