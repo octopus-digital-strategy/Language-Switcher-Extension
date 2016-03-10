@@ -1,41 +1,5 @@
 [
     {
-        "name": "page-carbajal/wpexpress-query",
-        "version": "0.10.4",
-        "version_normalized": "0.10.4.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Page-Carbajal/WPExpress-Query.git",
-            "reference": "f81c2d435994324dc3a4d295da40b5d790711930"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/Page-Carbajal/WPExpress-Query/zipball/f81c2d435994324dc3a4d295da40b5d790711930",
-            "reference": "f81c2d435994324dc3a4d295da40b5d790711930",
-            "shasum": ""
-        },
-        "time": "2016-02-10 17:05:55",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "WPExpress\\": "source/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "GNU-3.0"
-        ],
-        "authors": [
-            {
-                "name": "Page Carbajal",
-                "email": "awesome@pagecarbajal.com"
-            }
-        ],
-        "description": "A WPDB abstraction",
-        "homepage": "https://github.com/Page-Carbajal/WPExpress"
-    },
-    {
         "name": "mustache/mustache",
         "version": "v2.10.0",
         "version_normalized": "2.10.0.0",
@@ -148,24 +112,24 @@
     },
     {
         "name": "page-carbajal/wpexpress-ui",
-        "version": "1.0.1",
-        "version_normalized": "1.0.1.0",
+        "version": "1.0.2",
+        "version_normalized": "1.0.2.0",
         "source": {
             "type": "git",
             "url": "https://github.com/Page-Carbajal/WPExpress-UI.git",
-            "reference": "7ed0337e124f7b62ea68085c2a8e56945e575116"
+            "reference": "1a930f7aa3fe3e0935de94ee9f869bdfd3aa85bf"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Page-Carbajal/WPExpress-UI/zipball/7ed0337e124f7b62ea68085c2a8e56945e575116",
-            "reference": "7ed0337e124f7b62ea68085c2a8e56945e575116",
+            "url": "https://api.github.com/repos/Page-Carbajal/WPExpress-UI/zipball/1a930f7aa3fe3e0935de94ee9f869bdfd3aa85bf",
+            "reference": "1a930f7aa3fe3e0935de94ee9f869bdfd3aa85bf",
             "shasum": ""
         },
         "require": {
             "mustache/mustache": "^2.9",
             "twig/twig": "^1.23"
         },
-        "time": "2016-03-10 00:47:39",
+        "time": "2016-03-10 03:47:02",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -186,26 +150,62 @@
         "description": "HTML Helper and Render Engine for WPExpress."
     },
     {
+        "name": "page-carbajal/wpexpress-query",
+        "version": "0.10.4",
+        "version_normalized": "0.10.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Page-Carbajal/WPExpress-Query.git",
+            "reference": "f81c2d435994324dc3a4d295da40b5d790711930"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Page-Carbajal/WPExpress-Query/zipball/f81c2d435994324dc3a4d295da40b5d790711930",
+            "reference": "f81c2d435994324dc3a4d295da40b5d790711930",
+            "shasum": ""
+        },
+        "time": "2016-02-10 17:05:55",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "WPExpress\\": "source/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GNU-3.0"
+        ],
+        "authors": [
+            {
+                "name": "Page Carbajal",
+                "email": "awesome@pagecarbajal.com"
+            }
+        ],
+        "description": "A WPDB abstraction",
+        "homepage": "https://github.com/Page-Carbajal/WPExpress"
+    },
+    {
         "name": "page-carbajal/wpexpress",
         "version": "1.2.4",
         "version_normalized": "1.2.4.0",
         "source": {
             "type": "git",
             "url": "https://github.com/Page-Carbajal/WPExpress.git",
-            "reference": "096056c01b3bacdcf718c61edf8d4863bdb55d8e"
+            "reference": "99055aeca5bea690771fd124b38553eaf0f65662"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Page-Carbajal/WPExpress/zipball/096056c01b3bacdcf718c61edf8d4863bdb55d8e",
-            "reference": "096056c01b3bacdcf718c61edf8d4863bdb55d8e",
+            "url": "https://api.github.com/repos/Page-Carbajal/WPExpress/zipball/99055aeca5bea690771fd124b38553eaf0f65662",
+            "reference": "99055aeca5bea690771fd124b38553eaf0f65662",
             "shasum": ""
         },
         "require": {
             "page-carbajal/wpexpress-query": "^0.10.4",
-            "page-carbajal/wpexpress-ui": "^1.0.1",
+            "page-carbajal/wpexpress-ui": "^1.0.2",
             "php": ">=5.5"
         },
-        "time": "2016-03-10 00:59:25",
+        "time": "2016-03-10 03:50:05",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
