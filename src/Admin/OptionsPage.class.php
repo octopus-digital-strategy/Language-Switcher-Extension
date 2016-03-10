@@ -27,8 +27,6 @@ class OptionsPage extends BaseSettingsPage
         $this->setPageTitle(__('Append Translations Items to Menus', 'lsex'));
         // Add custom options
         $this->addPageOptions();
-        // Add Short Code Generator
-        $this->addShortCodeGenerator();
     }
 
     public function addPageOptions()
@@ -47,16 +45,6 @@ class OptionsPage extends BaseSettingsPage
         // 2 Lines
         $menuNoFlags = $this->getOptionValue('menu_slugs_no_flag');
         $this->fields->addSelect('menu_slugs_no_flag', $menuList)->addLabel(__('Append Text-Only item to', 'lsex'))->setValue($menuNoFlags);
-
-        return $this;
-    }
-
-    private function addShortCodeGenerator()
-    {
-        $translations = new Translations();
-        $allTranslations = $translations->getTranslations();
-
-//        $options =
 
         return $this;
     }

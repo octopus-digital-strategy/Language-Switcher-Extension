@@ -8,10 +8,12 @@ class Translations
 {
 
     private $translations;
+    private $transientID;
 
     public function __construct()
     {
         $this->setTranslations();
+        $this->transientID = "__lsex_translation_menu_items";
     }
 
     private function getSiteByLanguage( $language )
@@ -27,34 +29,63 @@ class Translations
 
     private function setTranslations()
     {
-        global $post, $wp_query;
 
-        $targetID     = ( isset( $wp_query ) ? get_queried_object_id() : get_option('page_on_front', get_option('page_for_posts')) );
-        $options      = new \MslsOptionsPost($targetID);
-        $languages    = $options->get_arr();
-        $translations = array();
+        // TODO: Implement Transients
 
-        foreach( $languages as $language => $postID ) {
-            $site = $this->getSiteByLanguage($language);
-
-            if( $site !== false ) {
-                $imgURL       = \MslsOptions::instance()->get_flag_url($language);
-                $thePermalink = get_blog_permalink($site->userblog_id, $post->ID);
-                $linkText     = $this->getLanguageTranslation($site->get_description());
-
-                if( !empty( $imgURL ) && is_string($imgURL) ) {
-                    $translations[$language] = array(
-                        'url'      => $thePermalink,
-                        'flagURL'  => $imgURL,
-                        'flag'     => "<img src=\"{$imgURL}\" alt=\"{$site->get_description()}\"/>",
-                        'htmlLink' => "<a href=\"{$thePermalink}\" class=\"translationLink\"><img src=\"{$imgURL}\" alt=\"{$site->get_description()}\"> {$linkText}</a>",
-                        'linkText' => $linkText,
-                    );
-                }
-            }
+        $transientValue = get_transient($this->transientID);
+        if( false !== $transientValue ) {
+            return $transientValue;
         }
 
-        $this->translations = $translations;
+        $list  = array();
+        $blogs = \MslsBlogCollection::instance()->get_filtered();
+        if( $blogs ) {
+            $mydata = \MslsOptions::create();
+            $link   = \MslsLink::create(0);
+
+            foreach( $blogs as $blog ) {
+                $language = $blog->get_language();
+                $url      = $mydata->get_current_link();
+                $current  = ( $blog->userblog_id == \MslsBlogCollection::instance()->get_current_blog_id() );
+
+                if( $current ) {
+                    $link->txt = $blog->get_description();
+                } else {
+                    switch_to_blog($blog->userblog_id);
+
+                    if( \MslsOutput::init()->is_requirements_not_fulfilled($mydata, false, $language) ) {
+                        restore_current_blog();
+                        continue;
+                    } else {
+                        $url       = $mydata->get_permalink($language);
+                        $link->txt = $blog->get_description();
+                    }
+
+                    restore_current_blog();
+                }
+
+                $link->src = \MslsOptions::instance()->get_flag_url($language);
+                $link->alt = $language;
+
+                $itemArray = $link->get_arr();
+                $linkText  = $this->getLanguageTranslation($itemArray['txt']);
+
+                $list[$language] = array(
+                    'url'      => $url,
+                    'flagURL'  => $itemArray['src'],
+                    'flag'     => "<img src=\"{$itemArray['src']}\" alt=\"{$linkText}\"/>",
+                    'htmlLink' => "<a href=\"{$url}\" class=\"translationLink\"><img src=\"{$itemArray['src']}\" alt=\"{$linkText}\"> {$linkText}</a>",
+                    'linkText' => $linkText,
+                );
+            }
+
+        }
+
+        set_transient($this->transientID, $list, 600); // 10minutes should do it!
+
+        $this->translations = $list;
+
+        return $list;
     }
 
     public function getTranslations( $targetLanguage = '' )

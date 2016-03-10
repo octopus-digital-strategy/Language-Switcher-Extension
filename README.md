@@ -47,8 +47,11 @@ The easier of them all. Returns a string with all the links to available transla
 ##Change Log
 
 
-###Version 0.7.1 - Site Option Fix! --Not Tagged!
+###Version 0.8.0 - New Translations/setTranslations 
 
+- Tested Shortcodes in local also working properly
+- Tested changes in production theyre working as expected
+- Totally replaced the method Translations/setTranslations
 - Updated BaseSettingsPage to use get_option and update_option instead of site_option alternatives
 
 
