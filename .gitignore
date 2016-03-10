@@ -2,4 +2,5 @@ composer.lock
 vendor/twig/twig/doc
 vendor/twig/twig/test
 vendor/mustache/mustache/test
+resources/templates/mustache/cache/*
 

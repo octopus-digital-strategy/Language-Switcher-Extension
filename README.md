@@ -47,6 +47,11 @@ The easier of them all. Returns a string with all the links to available transla
 ##Change Log
 
 
+###Version 0.7.1 - Site Option Fix!
+
+- Updated BaseSettingsPage to use get_option and update_option instead of site_option alternatives
+
+
 ###Version 0.7.0 - Upgrade to WPExpress 1.2.4
 
 - Modified BaseSettings Page to Allow empty values

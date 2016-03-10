@@ -195,7 +195,7 @@ abstract class BaseSettingsPage
             foreach( $this->fields->toArray() as $fieldName => $field ) {
                 $optionName = "{$this->fieldPrefix}{$fieldName}";
                 if( isset( $_POST[$fieldName] ) ) {
-                    update_site_option($optionName, $_POST[$fieldName]);
+                    update_option($optionName, $_POST[$fieldName]);
                     // Update the field value :D
                     $this->fields($fieldName)->setValue($_POST[$fieldName]);
                 }
@@ -291,7 +291,7 @@ abstract class BaseSettingsPage
     public function getOptionValue( $option )
     {
         $optionName = "{$this->fieldPrefix}{$option}";
-        return get_site_option($optionName);
+        return get_option($optionName);
     }
 
     public function getValue( $fieldName )
