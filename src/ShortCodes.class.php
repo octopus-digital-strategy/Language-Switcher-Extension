@@ -85,20 +85,7 @@ class ShortCodes
             return null;
         }
 
-        $translation = '';
-        switch( $link->txt ) {
-            case "es_MX":
-                $translation = __('es_MX', 'lsex');
-                break;
-            case "es_ES":
-                $translation = __('es_ES', 'lsex');
-                break;
-            case "fr_FR":
-                $translation = __('fr_FR', 'lsex');
-                break;
-            default:
-                $translation = __('en_EN', 'lsex');
-        }
+        $translation = Translations::getLanguageTranslation($link->txt);
 
         $context = array(
             'url'        => $url,
@@ -109,7 +96,7 @@ class ShortCodes
 
         $engine = new RenderEngine(UI::getResourceDirectory('', 'templates/mustache'));
 
-        return $engine->renderTemplate('link-output.mustache', $context);
+        return $engine->renderTemplate('link-output', $context);
 
     }
 

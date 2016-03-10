@@ -37,13 +37,19 @@ class Translations
             $site = $this->getSiteByLanguage($language);
 
             if( $site !== false ) {
-                $imgURL                  = \MslsOptions::instance()->get_flag_url($language);
-                $thePermalink            = get_blog_permalink($site->userblog_id, $post->ID);
-                $translations[$language] = array(
-                    'url'      => $thePermalink,
-                    'flag'     => "<img src=\"{$imgURL}\" alt=\"{$site->get_description()}\"/>",
-                    'htmlLink' => "<a href=\"{$thePermalink}\" class=\"translationLink\"><img src=\"{$imgURL}\" alt=\"{$site->get_description()}\"/></a>",
-                );
+                $imgURL       = \MslsOptions::instance()->get_flag_url($language);
+                $thePermalink = get_blog_permalink($site->userblog_id, $post->ID);
+                $linkText     = $this->getLanguageTranslation($site->get_description());
+
+                if( !empty( $imgURL ) && is_string($imgURL) ) {
+                    $translations[$language] = array(
+                        'url'      => $thePermalink,
+                        'flagURL'  => $imgURL,
+                        'flag'     => "<img src=\"{$imgURL}\" alt=\"{$site->get_description()}\"/>",
+                        'htmlLink' => "<a href=\"{$thePermalink}\" class=\"translationLink\"><img src=\"{$imgURL}\" alt=\"{$site->get_description()}\"> {$linkText}</a>",
+                        'linkText' => $linkText,
+                    );
+                }
             }
         }
 
@@ -56,6 +62,29 @@ class Translations
             return empty( $this->translations ) ? array() : $this->translations;
         }
         return isset( $this->translations[$targetLanguage] ) ? $this->translations[$targetLanguage] : array();
+    }
+
+    public static function getLanguageTranslation( $languageKey )
+    {
+        if( $languageKey == 'es' ) {
+            $languageKey = 'es_MX';
+        }
+
+        switch( strtolower($languageKey) ) {
+            case "es_mx":
+                $translation = __('es_MX', 'lsex');
+                break;
+            case "es_es":
+                $translation = __('es_ES', 'lsex');
+                break;
+            case "fr_fr":
+                $translation = __('fr_FR', 'lsex');
+                break;
+            default:
+                $translation = __('en_EN', 'lsex');
+        }
+
+        return $translation;
     }
 
 }

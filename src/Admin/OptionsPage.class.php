@@ -31,18 +31,18 @@ class OptionsPage extends BaseSettingsPage
     public function addPageOptions()
     {
         $menuList = array_map(function ( $item ) {
-            return array( 'text' => $item->name, 'value' => $item->ID );
+            return array( 'text' => $item->name, 'value' => $item->slug );
         }, Menu::getMenus());
 
         $menuList[] = array( 'text' => 'N/A', 'value' => '', 'selected' => 1 );
 
-        $menuWithFlags = get_site_option('menu_slugs');
+        $menuWithFlags = $this->getOptionValue('menu_slugs');
         $this->fields->addSelect('menu_slugs', $menuList);
         $this->fields->setValue($menuWithFlags);
         $this->fields->addLabel(__('Append Flag + Text to', 'lsex'));
 
         // 2 Lines
-        $menuNoFlags = get_site_option('menu_slugs_no_flag');
+        $menuNoFlags = $this->getOptionValue('menu_slugs_no_flag');
         $this->fields->addSelect('menu_slugs_no_flag', $menuList)->addLabel(__('Append Text-Only item to', 'lsex'))->setValue($menuNoFlags);
 
         return $this;
