@@ -47,6 +47,12 @@ The easier of them all. Returns a string with all the links to available transla
 ##Change Log
 
 
+###Version 0.8.1 - Fixed some damn bugs!
+
+- Updated plugin version
+- Changed the name to Multisite Language Switcher Extension 
+
+
 ###Version 0.8.0 - New Translations/setTranslations 
 
 - Upgraded to WPExpress 1.2.5
