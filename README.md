@@ -47,8 +47,9 @@ The easier of them all. Returns a string with all the links to available transla
 ##Change Log
 
 
-###Version 0.8.1 - Fixed some damn bugs!
+###Version 0.8.1 - Fixed Translation transients!
 
+- Improved the management of transient values for Translations
 - Updated plugin version
 - Changed the name to Multisite Language Switcher Extension 
 

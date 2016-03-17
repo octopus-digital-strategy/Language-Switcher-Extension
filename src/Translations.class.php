@@ -29,11 +29,13 @@ class Translations
 
     private function setTranslations()
     {
+        global $post;
 
-        // TODO: Implement Transients
+        $pageID = empty($post) ? 'home' : "pageID_{$post->ID}";
 
         $transientValue = get_transient($this->transientID);
-        if( false !== $transientValue ) {
+        if( false !== $transientValue && isset($transientValue[$pageID]) ) {
+            $this->translations = $transientValue[$pageID];
             return $transientValue;
         }
 
@@ -79,9 +81,14 @@ class Translations
                 );
             }
 
+            // Set the transient value
+            if( !empty($transientValue) ){
+                $transientValue = array_merge( array( "{$pageID}" => $list ), $transientValue );
+            } else {
+                $transientValue = array( "{$pageID}" => $list );
+            }
+            set_transient($this->transientID, $transientValue, 600); // 10minutes should do it!
         }
-
-        set_transient($this->transientID, $list, 600); // 10minutes should do it!
 
         $this->translations = $list;
 
