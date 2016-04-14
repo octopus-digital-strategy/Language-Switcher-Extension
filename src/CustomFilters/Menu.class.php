@@ -27,41 +27,41 @@ class Menu
             add_filter("wp_nav_menu_{$menuSlug}_items", array( $this, 'renderMenuItemsForAvailableTranslationsWithoutFlags' ), 10, 2);
         }
 
-        add_filter( 'wp_get_nav_menu_items', array($this, 'filterGetNavMenuItems'), 99, 3 );
+        add_filter('wp_get_nav_menu_items', array( $this, 'filterGetNavMenuItems' ), 99, 3);
 
     }
 
     public function filterGetNavMenuItems( $items, $menu, $arguments )
     {
-        $list  = array();
+        $list        = array();
         $translation = new Translations();
 
-        if( !is_admin() ){
-            foreach($items as $index => $item){
-                if( isset($item->title) && ( strpos( $item->title, 'lsex:' ) !== false ) ){
+        if( !is_admin() ) {
+            foreach( $items as $index => $item ) {
+                if( isset( $item->title ) && ( strpos($item->title, 'lsex:') !== false ) ) {
 
                     $bean = explode(':', $item->title);
 
-                    $translation = $translation->getTranslations( strtolower( $bean[1] ) );
+                    $translation = $translation->getTranslations($bean[1]);
 
-                    if( count($translation) > 0 ){
+                    if( count($translation) > 0 ) {
                         $item->title = "<img src=\"{$translation['flagURL']}\" alt=\"{$translation['linkText']}\" /> {$translation['linkText']}";
-                        $item->url = $translation['url'];
+                        $item->url   = $translation['url'];
                     } else {
                         $item->title = '';
                     }
 
                 }
 
-                if( !empty($item->title) ){
+                if( !empty( $item->title ) ) {
                     $list[] = $item;
                 }
             }
         }
 
-        return ( empty($lis) ? $items : $list );
+        return ( empty( $lis ) ? $items : $list );
     }
-    
+
     public function renderMenuItemsForAvailableTranslations( $items, $arguments )
     {
         $items .= $this->renderMenuItems();
