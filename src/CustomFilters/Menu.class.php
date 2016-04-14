@@ -34,7 +34,7 @@ class Menu
     public function filterGetNavMenuItems( $items, $menu, $arguments )
     {
         $list  = array();
-        $translations = new Translations();
+        $translation = new Translations();
 
         if( !is_admin() ){
             foreach($items as $index => $item){
@@ -42,11 +42,11 @@ class Menu
 
                     $bean = explode(':', $item->title);
 
-                    $translations = $translations->getTranslations( strtolower( $bean[1] ) );
+                    $translation = $translation->getTranslations( strtolower( $bean[1] ) );
 
-                    if( count($translations) > 0 ){
-                        $item->title = "<img src=\"{$translations[0]['flagURL']}\" alt=\"{$translations[0]['linkText']}\" /> {$translations[0]['linkText']}";
-                        $item->url = $translations[0]['url'];
+                    if( count($translation) > 0 ){
+                        $item->title = "<img src=\"{$translation['flagURL']}\" alt=\"{$translation['linkText']}\" /> {$translation['linkText']}";
+                        $item->url = $translation['url'];
                     } else {
                         $item->title = '';
                     }
