@@ -31,10 +31,10 @@ class Translations
     {
         global $post;
 
-        $pageID = empty($post) ? 'home' : "pageID_{$post->ID}";
+        $pageID = empty( $post ) ? 'home' : "pageID_{$post->ID}";
 
         $transientValue = get_transient($this->transientID);
-        if( false !== $transientValue && isset($transientValue[$pageID]) ) {
+        if( false !== $transientValue && isset( $transientValue[$pageID] ) ) {
             $this->translations = $transientValue[$pageID];
             return $transientValue;
         }
@@ -82,8 +82,8 @@ class Translations
             }
 
             // Set the transient value
-            if( !empty($transientValue) ){
-                $transientValue = array_merge( array( "{$pageID}" => $list ), $transientValue );
+            if( !empty( $transientValue ) ) {
+                $transientValue = array_merge(array( "{$pageID}" => $list ), $transientValue);
             } else {
                 $transientValue = array( "{$pageID}" => $list );
             }
@@ -102,7 +102,7 @@ class Translations
         }
         return isset( $this->translations[$targetLanguage] ) ? $this->translations[$targetLanguage] : array();
     }
-
+    
     public static function getLanguageTranslation( $languageKey )
     {
         if( $languageKey == 'es' ) {
@@ -119,8 +119,11 @@ class Translations
             case "fr_fr":
                 $translation = __('fr_FR', 'lsex');
                 break;
-            default:
+            case "en_en":
                 $translation = __('en_EN', 'lsex');
+                break;
+            default:
+                $translation = __('en_US', 'lsex');
         }
 
         return $translation;

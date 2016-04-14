@@ -26,8 +26,42 @@ class Menu
         if( !empty( $menuSlug ) ) {
             add_filter("wp_nav_menu_{$menuSlug}_items", array( $this, 'renderMenuItemsForAvailableTranslationsWithoutFlags' ), 10, 2);
         }
+
+        add_filter( 'wp_get_nav_menu_items', array($this, 'filterGetNavMenuItems'), 99, 3 );
+
     }
 
+    public function filterGetNavMenuItems( $items, $menu, $arguments )
+    {
+        $list  = array();
+        $translations = new Translations();
+
+        if( !is_admin() ){
+            foreach($items as $index => $item){
+                if( isset($item->title) && ( strpos( $item->title, 'lsex:' ) !== false ) ){
+
+                    $bean = explode(':', $item->title);
+
+                    $translations = $translations->getTranslations( strtolower( $bean[1] ) );
+
+                    if( count($translations) > 0 ){
+                        $item->title = "<img src=\"{$translations[0]['flagURL']}\" alt=\"{$translations[0]['linkText']}\" /> {$translations[0]['linkText']}";
+                        $item->url = $translations[0]['url'];
+                    } else {
+                        $item->title = '';
+                    }
+
+                }
+
+                if( !empty($item->title) ){
+                    $list[] = $item;
+                }
+            }
+        }
+
+        return ( empty($lis) ? $items : $list );
+    }
+    
     public function renderMenuItemsForAvailableTranslations( $items, $arguments )
     {
         $items .= $this->renderMenuItems();

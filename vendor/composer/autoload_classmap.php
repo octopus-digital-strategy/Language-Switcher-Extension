@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'LanguageSwitcherExtension\\Admin\\MetaBox' => $baseDir . '/src/Admin/MetaBox.class.php',
     'LanguageSwitcherExtension\\Admin\\OptionsPage' => $baseDir . '/src/Admin/OptionsPage.class.php',
     'LanguageSwitcherExtension\\CustomFilters\\Menu' => $baseDir . '/src/CustomFilters/Menu.class.php',
     'LanguageSwitcherExtension\\SetupPlugin' => $baseDir . '/src/SetupPlugin.class.php',

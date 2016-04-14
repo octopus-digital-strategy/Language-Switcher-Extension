@@ -47,6 +47,11 @@ The easier of them all. Returns a string with all the links to available transla
 ##Change Log
 
 
+###Version 0.8.2 - Translation codes
+
+- Implemented the method Menu/filterGetNavMenuItems
+- Added empty MetaBox class
+
 ###Version 0.8.1 - Fixed Translation transients!
 
 - Improved the management of transient values for Translations
