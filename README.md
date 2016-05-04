@@ -46,8 +46,10 @@ The easier of them all. Returns a string with all the links to available transla
 
 ##Change Log
 
-###Version 0.8.3 - Translation Update
+###Version 1.0.0 - Release Candidate
 
+- Bumped to version 1 before publishing on WordPress.org repository
+- Removed previous versions 
 - Updated translation files to include every translation in the repository
 
 ###Version 0.8.2 - Translation codes
