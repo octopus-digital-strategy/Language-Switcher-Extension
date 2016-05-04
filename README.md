@@ -46,6 +46,9 @@ The easier of them all. Returns a string with all the links to available transla
 
 ##Change Log
 
+###Version 0.8.3 - Translation Update
+
+- Updated translation files to include every translation in the repository
 
 ###Version 0.8.2 - Translation codes
 
