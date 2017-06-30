@@ -46,6 +46,10 @@ The easier of them all. Returns a string with all the links to available transla
 
 ##Change Log
 
+###Version 1.0.1 - Woocommerce 3.0 Select2 Fix.
+
+- Fixing that loading plugin scripts and styles only on the plugin admin page.
+
 ###Version 1.0.0 - Release Candidate
 
 - Bumped to version 1 before publishing on WordPress.org repository

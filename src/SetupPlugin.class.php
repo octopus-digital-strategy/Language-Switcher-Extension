@@ -38,8 +38,10 @@ class SetupPlugin
     public function registerStylesAndScripts()
     {
         // Load scripts for the front end
-        add_filter('admin_enqueue_scripts', array( __CLASS__, 'enqueueStyles' ));
-        add_filter('admin_enqueue_scripts', array( __CLASS__, 'enqueueScripts' ));
+        if (isset($_GET['page']) && ($_GET['page'] == 'lsex-menu-options')){
+            add_filter('admin_enqueue_scripts', array( __CLASS__, 'enqueueStyles' ));
+            add_filter('admin_enqueue_scripts', array( __CLASS__, 'enqueueScripts' ));
+        }
         return $this;
     }
 
