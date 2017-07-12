@@ -14,7 +14,7 @@
             "reference": "f81c2d435994324dc3a4d295da40b5d790711930",
             "shasum": ""
         },
-        "time": "2016-02-10 17:05:55",
+        "time": "2016-02-10T17:05:55+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -37,27 +37,27 @@
     },
     {
         "name": "mustache/mustache",
-        "version": "v2.10.0",
-        "version_normalized": "2.10.0.0",
+        "version": "v2.12.0",
+        "version_normalized": "2.12.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/bobthecow/mustache.php.git",
-            "reference": "0bb2f76e2f34a8864a32be34c4ec66274d76c05e"
+            "reference": "fe8fe72e9d580591854de404cc59a1b83ca4d19e"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/bobthecow/mustache.php/zipball/0bb2f76e2f34a8864a32be34c4ec66274d76c05e",
-            "reference": "0bb2f76e2f34a8864a32be34c4ec66274d76c05e",
+            "url": "https://api.github.com/repos/bobthecow/mustache.php/zipball/fe8fe72e9d580591854de404cc59a1b83ca4d19e",
+            "reference": "fe8fe72e9d580591854de404cc59a1b83ca4d19e",
             "shasum": ""
         },
         "require": {
             "php": ">=5.2.4"
         },
         "require-dev": {
-            "fabpot/php-cs-fixer": "~1.6",
+            "friendsofphp/php-cs-fixer": "~1.11",
             "phpunit/phpunit": "~3.7|~4.0|~5.0"
         },
-        "time": "2016-02-27 19:22:46",
+        "time": "2017-07-11T12:54:05+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -85,37 +85,41 @@
     },
     {
         "name": "twig/twig",
-        "version": "v1.24.0",
-        "version_normalized": "1.24.0.0",
+        "version": "v1.34.4",
+        "version_normalized": "1.34.4.0",
         "source": {
             "type": "git",
             "url": "https://github.com/twigphp/Twig.git",
-            "reference": "3e5aa30ebfbafd5951fb1b01e338e1800ce7e0e8"
+            "reference": "f878bab48edb66ad9c6ed626bf817f60c6c096ee"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/twigphp/Twig/zipball/3e5aa30ebfbafd5951fb1b01e338e1800ce7e0e8",
-            "reference": "3e5aa30ebfbafd5951fb1b01e338e1800ce7e0e8",
+            "url": "https://api.github.com/repos/twigphp/Twig/zipball/f878bab48edb66ad9c6ed626bf817f60c6c096ee",
+            "reference": "f878bab48edb66ad9c6ed626bf817f60c6c096ee",
             "shasum": ""
         },
         "require": {
-            "php": ">=5.2.7"
+            "php": ">=5.3.3"
         },
         "require-dev": {
+            "psr/container": "^1.0",
             "symfony/debug": "~2.7",
-            "symfony/phpunit-bridge": "~2.7"
+            "symfony/phpunit-bridge": "~3.3@dev"
         },
-        "time": "2016-01-25 21:22:18",
+        "time": "2017-07-04T13:19:31+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.24-dev"
+                "dev-master": "1.34-dev"
             }
         },
         "installation-source": "dist",
         "autoload": {
             "psr-0": {
                 "Twig_": "lib/"
+            },
+            "psr-4": {
+                "Twig\\": "src/"
             }
         },
         "notification-url": "https://packagist.org/downloads/",
@@ -148,24 +152,24 @@
     },
     {
         "name": "page-carbajal/wpexpress-ui",
-        "version": "1.0.3",
-        "version_normalized": "1.0.3.0",
+        "version": "1.0.5",
+        "version_normalized": "1.0.5.0",
         "source": {
             "type": "git",
             "url": "https://github.com/Page-Carbajal/WPExpress-UI.git",
-            "reference": "37ad1fcda518237cc8391570eb4ac387598bc42a"
+            "reference": "8709e20d4f39b12630ff6f293b7119483f660227"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Page-Carbajal/WPExpress-UI/zipball/37ad1fcda518237cc8391570eb4ac387598bc42a",
-            "reference": "37ad1fcda518237cc8391570eb4ac387598bc42a",
+            "url": "https://api.github.com/repos/Page-Carbajal/WPExpress-UI/zipball/8709e20d4f39b12630ff6f293b7119483f660227",
+            "reference": "8709e20d4f39b12630ff6f293b7119483f660227",
             "shasum": ""
         },
         "require": {
             "mustache/mustache": "^2.9",
             "twig/twig": "^1.23"
         },
-        "time": "2016-03-10 22:04:05",
+        "time": "2016-04-01T05:15:25+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -187,17 +191,17 @@
     },
     {
         "name": "page-carbajal/wpexpress",
-        "version": "1.2.5",
-        "version_normalized": "1.2.5.0",
+        "version": "1.3.7",
+        "version_normalized": "1.3.7.0",
         "source": {
             "type": "git",
             "url": "https://github.com/Page-Carbajal/WPExpress.git",
-            "reference": "2d31896285ce42d0c424700ab3db44b2a70f6ad5"
+            "reference": "28ea426f64ed8ef2cc8552d104c84b2bb5f318c0"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Page-Carbajal/WPExpress/zipball/2d31896285ce42d0c424700ab3db44b2a70f6ad5",
-            "reference": "2d31896285ce42d0c424700ab3db44b2a70f6ad5",
+            "url": "https://api.github.com/repos/Page-Carbajal/WPExpress/zipball/28ea426f64ed8ef2cc8552d104c84b2bb5f318c0",
+            "reference": "28ea426f64ed8ef2cc8552d104c84b2bb5f318c0",
             "shasum": ""
         },
         "require": {
@@ -205,7 +209,7 @@
             "page-carbajal/wpexpress-ui": "^1.0.3",
             "php": ">=5.5"
         },
-        "time": "2016-03-10 22:05:47",
+        "time": "2016-04-25T04:14:01+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -219,7 +223,7 @@
         ],
         "authors": [
             {
-                "name": "Page Carbajal",
+                "name": "Software Engineer - Page Carbajal",
                 "homepage": "http://pagecarbajal.com"
             }
         ],

@@ -7,5 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'WPExpress\\' => array($vendorDir . '/page-carbajal/wpexpress-query/source', $vendorDir . '/page-carbajal/wpexpress-ui/source', $vendorDir . '/page-carbajal/wpexpress/source'),
+    'Twig\\' => array($vendorDir . '/twig/twig/src'),
     'LanguageSwitcherExtension\\' => array($baseDir . '/src'),
 );
